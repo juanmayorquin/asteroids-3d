@@ -184,11 +184,15 @@ PrefabInstance:
       objectReference: {fileID: 4562828542090466592, guid: 0a15150b3d173974e9cade958ad608be, type: 3}
     - target: {fileID: 1963655056057786087, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
       propertyPath: speed
-      value: 20
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963655056057786087, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
+      propertyPath: cooldown
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1963655056057786087, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
       propertyPath: bulletSpeed
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1963655056057786087, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
       propertyPath: rotationSpeed
@@ -235,8 +239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroide: {fileID: 3990913151794645116, guid: 64b4aa2c2761fc141963c4df78b31515, type: 3}
-  numAsteroidesPorEje: 20
-  espacioEntreAsteroides: 80
+  numAsteroidesPorEje: 4
+  espacioEntreAsteroides: 50
 --- !u!4 &681213542
 Transform:
   m_ObjectHideFlags: 0

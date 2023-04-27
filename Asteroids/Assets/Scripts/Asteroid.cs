@@ -22,7 +22,7 @@ public class Asteroid : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(1f, 2f), UnityEngine.Random.Range(1f, 2f), UnityEngine.Random.Range(1f, 2f)));
+        GetComponent<Rigidbody>().velocity = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)) * 30;
     }
 
     // Update is called once per frame

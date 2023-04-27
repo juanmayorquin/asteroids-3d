@@ -29,6 +29,13 @@ public class AsteroidsManager : MonoBehaviour
     void InstatiateAsteroid(int x, int y, int z)
     {
         Instantiate(asteroide, new Vector3(transform.position.x + (espacioEntreAsteroides*x) + AsteroidOffset(), transform.position.y + (espacioEntreAsteroides * y) + AsteroidOffset(), transform.position.z + (espacioEntreAsteroides * z) + AsteroidOffset()), Quaternion.identity, transform);
+        
+
+    }
+
+    void ThrowAsteroid(Asteroid asteroid)
+    {
+        asteroid.GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f)) * 20);
     }
     
     float AsteroidOffset()
