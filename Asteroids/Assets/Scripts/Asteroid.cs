@@ -6,6 +6,7 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     [SerializeField] private float minScale, maxScale, tumble;
+    [SerializeField] private Asteroid nextAsteroid;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +17,29 @@ public class Asteroid : MonoBehaviour
 
         transform.localScale = scale;
 
-        GetComponent<Rigidbody>().angularVelocity = UnityEngine.Random.insideUnitSphere * UnityEngine.Random.Range(-tumble, tumble);
+        GetComponent<Rigidbody>().angularVelocity = UnityEngine.Random.insideUnitSphere * UnityEngine.Random.Range(-tumble, tumble);        
+    }
+
+    private void Awake()
+    {
+        GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(1f, 2f), UnityEngine.Random.Range(1f, 2f), UnityEngine.Random.Range(1f, 2f)));
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void Duplicar()
+    {
+        if(nextAsteroid != null)
+        {
+            Asteroid ast1 = Instantiate(nextAsteroid, transform.position, transform.rotation);
+            ast1.GetComponent<Rigidbody>().velocity = transform.forward * 50;
+
+            Asteroid ast2 = Instantiate(nextAsteroid, transform.position, transform.rotation);
+            ast2.GetComponent<Rigidbody>().velocity = -transform.forward * 50;
+        }
     }
 }

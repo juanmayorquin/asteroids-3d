@@ -5,10 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public bool isMoving;
-    [SerializeField] private float rotationSpeed, speed;
+    [SerializeField] private float rotationSpeed, speed, bulletSpeed, timer, cooldown;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform rightFire, leftFire;
-    [SerializeField] private GameObject Bala;
+    [SerializeField] private Bala Bala;
     
     private float xTarget = 0;
     private float yTarget = 0;
@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        timer = 0;
     }
 
     // Update is called once per frame
@@ -54,10 +55,16 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
+        timer += Time.deltaTime;
+
         if (Input.GetAxis("Fire1") != 0)
         {
-            Debug.Log("Hola");
-            Instantiate(Bala, leftFire.position, transform.rotation);
+            if(timer > cooldown)
+            {
+                var bullet = Instantiate(Bala, rightFire.position, rightFire.rotation);
+                bullet.GetComponent<Rigidbody>().velocity = rightFire.forward * bulletSpeed;
+                timer = 0;
+            }
         }
     }
 }

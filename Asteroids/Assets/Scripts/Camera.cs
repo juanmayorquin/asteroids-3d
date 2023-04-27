@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
+    public Vector3 velocity = Vector3.one;
     [SerializeField] private GameObject player;
     private Vector3 distance;
 
@@ -17,7 +18,7 @@ public class Camera : MonoBehaviour
     void LateUpdate()
     {
         Vector3 toPos = player.transform.position + (player.transform.rotation * distance);
-        transform.position = Vector3.Lerp(transform.position, toPos, 8f * Time.deltaTime);
+        transform.position = Vector3.SmoothDamp(transform.position, toPos, ref velocity, 0.1f);
 
         Quaternion toRot = Quaternion.LookRotation(player.transform.position - transform.position, player.transform.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, toRot, 10f * Time.deltaTime);

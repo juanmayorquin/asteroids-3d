@@ -14,11 +14,11 @@ public class AsteroidsManager : MonoBehaviour
 
     void PlaceAsteroids()
     {
-        for (int x = 0; x < numAsteroidesPorEje; x++)
+        for (int x = -numAsteroidesPorEje / 2; x < numAsteroidesPorEje / 2; x++)
         {
-            for(int y = 0; y < numAsteroidesPorEje; y++)
+            for(int y = -numAsteroidesPorEje / 2; y < numAsteroidesPorEje / 2; y++)
             {
-                for(int z = 0; z < numAsteroidesPorEje; z++)
+                for(int z = -numAsteroidesPorEje / 2; z < numAsteroidesPorEje / 2; z++)
                 {
                     InstatiateAsteroid(x, y, z);
                 }

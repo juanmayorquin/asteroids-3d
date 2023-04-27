@@ -178,8 +178,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1963655056057786087, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
+      propertyPath: Bala
+      value: 
+      objectReference: {fileID: 4562828542090466592, guid: 0a15150b3d173974e9cade958ad608be, type: 3}
+    - target: {fileID: 1963655056057786087, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963655056057786087, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
+      propertyPath: bulletSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963655056057786087, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
+      propertyPath: rotationSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780698057239788147, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
+--- !u!1 &305724241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1510364872509504, guid: d9ea88d84d0d17340b5d799d82d824a3, type: 3}
+  m_PrefabInstance: {fileID: 305724240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &681213540
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroide: {fileID: 3990913151794645116, guid: 64b4aa2c2761fc141963c4df78b31515, type: 3}
-  numAsteroidesPorEje: 10
+  numAsteroidesPorEje: 20
   espacioEntreAsteroides: 80
 --- !u!4 &681213542
 Transform:
@@ -332,6 +357,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -398,10 +424,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 2.38, z: -12.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b837925f4a5ceef4d9c53d140a7aab92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 1, y: 1, z: 1}
+  player: {fileID: 305724241}
