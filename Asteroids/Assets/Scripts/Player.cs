@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public bool isMoving;
+    private int turnoDisparador = 0;
     [SerializeField] private float rotationSpeed, speed, bulletSpeed, timer, cooldown;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform rightFire, leftFire;
@@ -27,15 +28,6 @@ public class Player : MonoBehaviour
         Rotar();
         Avanzar();
         Shoot();
-
-        if(rb.velocity.magnitude > 1)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
     }
 
     public void Rotar()
@@ -61,10 +53,27 @@ public class Player : MonoBehaviour
         {
             if(timer > cooldown)
             {
-                var bullet = Instantiate(Bala, rightFire.position, rightFire.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = rightFire.forward * bulletSpeed;
-                timer = 0;
+                switch(turnoDisparador)
+                {
+                    case 0:
+                        var bullet = Instantiate(Bala, rightFire.position, rightFire.rotation);
+                        bullet.GetComponent<Rigidbody>().velocity = rightFire.forward * bulletSpeed;
+                        timer = 0;
+                        turnoDisparador++;
+                        break;
+                    case 1:
+                        var bala = Instantiate(Bala, leftFire.position, leftFire.rotation);
+                        bala.GetComponent<Rigidbody>().velocity = rightFire.forward * bulletSpeed;
+                        timer = 0;
+                        turnoDisparador = 0;
+                        break;
+                }
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        
     }
 }

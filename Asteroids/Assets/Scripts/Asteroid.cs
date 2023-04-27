@@ -42,4 +42,12 @@ public class Asteroid : MonoBehaviour
             ast2.GetComponent<Rigidbody>().velocity = -transform.forward * 50;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
