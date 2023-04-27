@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f04997be5340f4b8ca9b646f2a263b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 100
   minScale: 2
   maxScale: 2.5
   tumble: 1.5

@@ -6,7 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private int turnoDisparador = 0;
-    [SerializeField] private float rotationSpeed, speed, bulletSpeed, timer, cooldown;
+    [SerializeField] private float rotationSpeed, speed, bulletSpeed, cooldown;
+    private float timer;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform rightFire, leftFire;
     [SerializeField] private Bala Bala;
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
 
     public void Avanzar()
     {
-        rb.velocity = transform.forward * speed * Input.GetAxis("Jump");
+        rb.velocity = Input.GetAxis("Jump") * speed * transform.forward;
         
     }
 
@@ -57,19 +58,24 @@ public class Player : MonoBehaviour
                 {
                     case 0:
                         var bullet = Instantiate(Bala, rightFire.position, rightFire.rotation);
-                        bullet.GetComponent<Rigidbody>().velocity = rightFire.forward * bulletSpeed;
+                        bullet.GetComponent<Rigidbody>().velocity = (rightFire.forward * bulletSpeed);
                         timer = 0;
                         turnoDisparador++;
                         break;
                     case 1:
                         var bala = Instantiate(Bala, leftFire.position, leftFire.rotation);
-                        bala.GetComponent<Rigidbody>().velocity = rightFire.forward * bulletSpeed;
+                        bala.GetComponent<Rigidbody>().velocity = (rightFire.forward * bulletSpeed);
                         timer = 0;
                         turnoDisparador = 0;
                         break;
                 }
             }
         }
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = Vector3.zero;
     }
 
     private void OnDrawGizmos()

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Transactions;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Bala : MonoBehaviour
 {
-    [SerializeField] private GameObject balaPrefab;
     [SerializeField] private Rigidbody rb;
     [SerializeField] float timeAlive, timer;
     // Start is called before the first frame update
@@ -31,6 +31,7 @@ public class Bala : MonoBehaviour
         
         if(collision.collider.CompareTag("Enemy"))
         {
+            //PlayerInfo.score += collision.collider.GetComponent<Asteroid>().score;
             collision.gameObject.GetComponent<Asteroid>().Duplicar();
             Destroy(collision.gameObject);
             Destroy(gameObject);

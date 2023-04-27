@@ -5,14 +5,15 @@ using UnityEngine;
 public class AsteroidsManager : MonoBehaviour
 {
     [SerializeField] private Asteroid asteroide;
-    [SerializeField] private int numAsteroidesPorEje, espacioEntreAsteroides;
+    [SerializeField] private int espacioEntreAsteroides;
+    public int numAsteroidesPorEje;
 
     void Start()
     {
         PlaceAsteroids();
     }
 
-    void PlaceAsteroids()
+    public void PlaceAsteroids()
     {
         for (int x = -numAsteroidesPorEje / 2; x < numAsteroidesPorEje / 2; x++)
         {

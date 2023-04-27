@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+    public int score;
     [SerializeField] private float minScale, maxScale, tumble;
     [SerializeField] private Asteroid nextAsteroid;
     // Start is called before the first frame update
@@ -35,11 +36,8 @@ public class Asteroid : MonoBehaviour
     {
         if(nextAsteroid != null)
         {
-            Asteroid ast1 = Instantiate(nextAsteroid, transform.position, transform.rotation);
-            ast1.GetComponent<Rigidbody>().velocity = transform.forward * 50;
-
-            Asteroid ast2 = Instantiate(nextAsteroid, transform.position, transform.rotation);
-            ast2.GetComponent<Rigidbody>().velocity = -transform.forward * 50;
+            Instantiate(nextAsteroid, transform.position, transform.rotation);
+            Instantiate(nextAsteroid, transform.position, transform.rotation);
         }
     }
 
@@ -47,7 +45,13 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            PlayerInfo.vidas--;
+            collision.collider.GetComponent<Player>().ResetPosition();
         }
+    }
+
+    private void OnDestroy()
+    {
+        PlayerInfo.score += score;
     }
 }
