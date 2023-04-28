@@ -46,7 +46,9 @@ public class Asteroid : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             PlayerInfo.vidas--;
-            collision.collider.GetComponent<Player>().ResetPosition();
+            collision.gameObject.GetComponent<Player>().ResetPosition();
+
+            Destroy(gameObject);
         }
     }
 

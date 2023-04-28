@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
         PlayerInfo.vidas = 3;
         PlayerInfo.score = 0;
         level = 2;
+        asteroidsManager.numAsteroidesPorEje = level + 1;
     }
 
     // Update is called once per frame
@@ -32,7 +33,9 @@ public class GameManager : MonoBehaviour
 
         if(FindObjectsOfType<Asteroid>().Length == 0 )
         {
-            asteroidsManager.PlaceAsteroids();
+            level++;
+            asteroidsManager.PlaceAsteroids(level + 1);
+            player.ResetPosition();
         }
     }
 }

@@ -75,7 +75,10 @@ public class Player : MonoBehaviour
 
     public void ResetPosition()
     {
-        transform.position = Vector3.zero;
+        transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+        rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
+
     }
 
     private void OnDrawGizmos()

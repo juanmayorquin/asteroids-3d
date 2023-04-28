@@ -10,10 +10,10 @@ public class AsteroidsManager : MonoBehaviour
 
     void Start()
     {
-        PlaceAsteroids();
+        PlaceAsteroids(numAsteroidesPorEje);
     }
 
-    public void PlaceAsteroids()
+    public void PlaceAsteroids(int numAsteroidsPorEje)
     {
         for (int x = -numAsteroidesPorEje / 2; x < numAsteroidesPorEje / 2; x++)
         {

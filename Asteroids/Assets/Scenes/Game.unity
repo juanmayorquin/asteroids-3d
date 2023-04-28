@@ -502,7 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroide: {fileID: 3990913151794645116, guid: 64b4aa2c2761fc141963c4df78b31515, type: 3}
   espacioEntreAsteroides: 50
-  numAsteroidesPorEje: 3
+  numAsteroidesPorEje: 2
 --- !u!4 &681213542
 Transform:
   m_ObjectHideFlags: 0
