@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource musica, impulse, shoot;
+    public AudioSource musica, asteroidBoom;
 }

@@ -298,7 +298,7 @@ MonoBehaviour:
   tumble: 1.5
   nextAsteroid: {fileID: 3990913151794645116, guid: de66b2853c5bc604fb5241ab313caaac, type: 3}
   explosion: {fileID: 1337198075554910, guid: 4e082de9cd6160f4d89d75954c3113eb, type: 3}
-  explode: {fileID: 1661548624866467841}
+  audioManager: {fileID: 4139118027729502329, guid: 306c470b271b73a4a9b74b3689409f97, type: 3}
 --- !u!136 &418318191458256202
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -309,10 +309,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.75
-  m_Height: 1.52
+  m_Radius: 0.87
+  m_Height: 1.73
   m_Direction: 0
-  m_Center: {x: 0.04, y: -0.02, z: 0}
+  m_Center: {x: 0, y: -0.02, z: 0.03}
 --- !u!1 &176588
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         if(PlayerInfo.vidas <= 0)
         {
             player.death.Play();
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Defeat");
         }
 
         if(FindObjectsOfType<Asteroid>().Length == 0 )
