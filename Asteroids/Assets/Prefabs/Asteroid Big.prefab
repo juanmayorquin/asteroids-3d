@@ -296,6 +296,7 @@ MonoBehaviour:
   maxScale: 9
   tumble: 1.5
   nextAsteroid: {fileID: 3990913151794645116, guid: e2dfbbbbd6a8c294fbd48991e13e5d1b, type: 3}
+  explosion: {fileID: 1828176872806910, guid: e92b4e102e003b94983fef872e3e7542, type: 3}
 --- !u!136 &418318191458256202
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private float timer;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform rightFire, leftFire;
+    [SerializeField] private GameObject propulsor1, propulsor2, propulsor3;
     [SerializeField] private Bala Bala;
     
     private float xTarget = 0;
@@ -29,6 +30,19 @@ public class Player : MonoBehaviour
         Rotar();
         Avanzar();
         Shoot();
+
+        if(rb.velocity.magnitude <= 0.1f )
+        {
+            propulsor1.GetComponent<TrailRenderer>().enabled = false;
+            propulsor2.GetComponent<TrailRenderer>().enabled = false;
+            propulsor3.GetComponent<TrailRenderer>().enabled = false;
+        }
+        else if (rb.velocity.magnitude >= 0.11f)
+        {
+            propulsor1.GetComponent<TrailRenderer>().enabled = true;
+            propulsor2.GetComponent<TrailRenderer>().enabled = true;
+            propulsor3.GetComponent<TrailRenderer>().enabled = true;
+        }
     }
 
     public void Rotar()

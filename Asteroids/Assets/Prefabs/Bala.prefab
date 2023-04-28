@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6170363300759107294}
-  timeAlive: 5
+  timeAlive: 3
   timer: 0
 --- !u!54 &6170363300759107294
 Rigidbody:
@@ -173,7 +173,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 2
+  m_Time: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
