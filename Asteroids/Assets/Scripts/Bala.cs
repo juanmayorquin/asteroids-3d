@@ -10,6 +10,7 @@ public class Bala : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] float timeAlive, timer;
+    [SerializeField] AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class Bala : MonoBehaviour
         {
             //PlayerInfo.score += collision.collider.GetComponent<Asteroid>().score;
             collision.gameObject.GetComponent<Asteroid>().Duplicar();
+            audioManager.asteroidBoom.Play();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

@@ -57,7 +57,6 @@ public class Asteroid : MonoBehaviour
     private void OnDestroy()
     {
         var exp = Instantiate(explosion, transform.position, transform.rotation);
-        audioManager.asteroidBoom.Play();
         PlayerInfo.score += score;
     }
 }

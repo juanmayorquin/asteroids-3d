@@ -115,6 +115,7 @@ MonoBehaviour:
   rb: {fileID: 6170363300759107294}
   timeAlive: 3
   timer: 0
+  audioManager: {fileID: 4139118027729502329, guid: 306c470b271b73a4a9b74b3689409f97, type: 3}
 --- !u!54 &6170363300759107294
 Rigidbody:
   m_ObjectHideFlags: 0
