@@ -9,6 +9,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private float minScale, maxScale, tumble;
     [SerializeField] private Asteroid nextAsteroid;
     [SerializeField] private GameObject explosion;
+    public AudioSource explode;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +57,7 @@ public class Asteroid : MonoBehaviour
     private void OnDestroy()
     {
         var exp = Instantiate(explosion, transform.position, transform.rotation);
+        explode.Play();
         PlayerInfo.score += score;
     }
 }

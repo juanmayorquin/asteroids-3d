@@ -10,8 +10,9 @@ public class Player : MonoBehaviour
     private float timer;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform rightFire, leftFire;
-    [SerializeField] private GameObject propulsor1, propulsor2, propulsor3;
+    [SerializeField] private GameObject propulsor1, propulsor2, propulsor3, explosion;
     [SerializeField] private Bala Bala;
+    public AudioSource shoot, impulse, death;
     
     private float xTarget = 0;
     private float yTarget = 0;
@@ -57,6 +58,10 @@ public class Player : MonoBehaviour
     public void Avanzar()
     {
         rb.velocity = Input.GetAxis("Jump") * speed * transform.forward;
+        if ( Input.GetKeyDown(KeyCode.Space))
+        {
+            impulse.Play();
+        }
         
     }
 
@@ -73,12 +78,14 @@ public class Player : MonoBehaviour
                     case 0:
                         var bullet = Instantiate(Bala, rightFire.position, rightFire.rotation);
                         bullet.GetComponent<Rigidbody>().velocity = (rightFire.forward * bulletSpeed);
+                        shoot.Play();
                         timer = 0;
                         turnoDisparador++;
                         break;
                     case 1:
                         var bala = Instantiate(Bala, leftFire.position, leftFire.rotation);
                         bala.GetComponent<Rigidbody>().velocity = (rightFire.forward * bulletSpeed);
+                        shoot.Play();
                         timer = 0;
                         turnoDisparador = 0;
                         break;
@@ -92,11 +99,10 @@ public class Player : MonoBehaviour
         transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
-
     }
 
-    private void OnDrawGizmos()
+    private void OnDestroy()
     {
-        
+        Instantiate(explosion, transform.position, transform.rotation);
     }
 }

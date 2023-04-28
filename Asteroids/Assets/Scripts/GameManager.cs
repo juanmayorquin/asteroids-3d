@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -28,7 +29,8 @@ public class GameManager : MonoBehaviour
 
         if(PlayerInfo.vidas <= 0)
         {
-            Destroy(player.gameObject);
+            player.death.Play();
+            SceneManager.LoadScene("Menu");
         }
 
         if(FindObjectsOfType<Asteroid>().Length == 0 )
@@ -38,4 +40,6 @@ public class GameManager : MonoBehaviour
             player.ResetPosition();
         }
     }
+
+
 }

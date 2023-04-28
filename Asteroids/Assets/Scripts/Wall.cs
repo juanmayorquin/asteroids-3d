@@ -8,7 +8,7 @@ public class Wall : MonoBehaviour
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Player"))
         {
-            other.transform.position = -other.transform.position * 0.99f;
+            other.gameObject.transform.position = -other.transform.position * 0.9f;
         }      
     }
 }
